@@ -2,7 +2,7 @@ function! tree#open(dir, depth, bang, mods) abort
   let opt_a = a:bang ? '-a' : ''
   let depth = a:depth > 0 ? a:depth : g:tree_max_depth
   let root = fnamemodify(a:dir !=# '' ? a:dir : '.', ':p:h')
-  let tree = json_decode(system('tree ' . g:tree_options . ' ' . opt_a . ' -L ' . depth . ' -J ' . root))
+  let tree = json_decode(system('tree ' . g:tree_options . ' --noreport ' . opt_a . ' -L ' . depth . ' -J ' . root))
 
   execute a:mods . ' new'
   call setline(1, extend([s:path_join(root, '..', ''), s:path_join(root, '.', '')], s:make_tree(root, tree[0].contents, 0)))

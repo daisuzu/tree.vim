@@ -9,7 +9,7 @@ if !executable('tree')
 endif
 
 let g:tree_max_depth = get(g:, 'tree_max_depth', 10)
-let g:tree_options = get(g:, 'tree_options', '--noreport')
+let g:tree_options = get(g:, 'tree_options', '')
 
 command! -nargs=? -complete=dir -count -bang -bar Tree call tree#open(<q-args>, <count>, <bang>0, <q-mods>)
 

@@ -1,0 +1,75 @@
+*tree.txt*	Recursive directory listing plugin for Vim
+
+==============================================================================
+CONTENTS						*tree-contents*
+
+OVERVIEW			|tree-overview|
+REQUIREMENTS			|tree-requirements|
+INTERFACE			|tree-interface|
+  COMMANDS			  |tree-commands|
+  VARIABLES			  |tree-variables|
+TODO				|tree-todo|
+
+
+==============================================================================
+OVERVIEW						*tree-overview*
+
+*tree* is a recursive directory listing plugin for Vim that produces a depth
+folded listing of files, by the |:Tree| command.
+
+This plugin does not provide any mapping, but the file path is just concealed,
+so opening a file under the cursor, use built-in commands like |gf|.
+
+When doing post processing such as window resizing, use the |:bar| to separate
+commands. Example: >
+	:Tree | resize 10
+<
+
+
+==============================================================================
+REQUIREMENTS						*tree-requirements*
+
+- tree>=1.7.0: http://mama.indstate.edu/users/ice/tree/
+
+
+==============================================================================
+INTERFACE						*tree-interface*
+
+------------------------------------------------------------------------------
+COMMANDS						*tree-commands*
+
+:[<mods>] [count]Tree[!] [dir]				*:Tree*
+	Opens tree buffer. If [dir] is given the root of the tree
+	becomes [dir]. Otherwise, it becomes current working directory.
+
+	When the [!] is included hidden files are also displayed.
+
+	If [count] is given the depth of the tree becomes [count].
+	Without [count] |g:tree_max_depth| is used.
+
+	See |<mods>| for the optional <mods> argument.
+
+
+------------------------------------------------------------------------------
+VARIABLES						*tree-variables*
+
+g:tree_max_depth					*g:tree_max_depth*
+	Max display depth of the directory tree when not specified.
+
+	default value: 10
+
+
+g:tree_options						*g:tree_options*
+	Options to pass to the tree command.
+
+	default value: ""
+
+
+==============================================================================
+TODO							*tree-todo*
+
+- Windows support
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
